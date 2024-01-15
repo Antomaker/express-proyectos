@@ -1,0 +1,9 @@
+include partials/navigation.pug 
+
+h1 Login
+    form(action="index.pug", method="post")
+        //label(for="nombre") Nombre:
+        input(type="text", id="nombre", name="nombre", required)
+
+        input(type="submit", value="Enviar")
+    
