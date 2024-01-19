@@ -1,5 +1,6 @@
 const express = require('express');
 const path = require('path');
+const morgan=require('morgan');
 // Initializations
 const app= express();
 // setting
@@ -13,6 +14,7 @@ app.set('views', [
 ]);
 
 //Middlewarns
+app.use(morgan('dev'));
 app.use(express.urlencoded({extended:false}));
 
 //global var

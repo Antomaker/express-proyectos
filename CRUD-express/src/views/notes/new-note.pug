@@ -1,0 +1,20 @@
+extend ../layouts/main.pug
+
+block content
+  br
+  div.col-md-4.mx-auto
+    div.card.text-center
+        div.card-header
+            h3 New Note
+        div.card-body 
+            form(action="/notes/new-note", method='POST')
+                div.from-group
+                    input(type='text', name='title',class="form-control",placeholder="Title", autofocus)
+                
+                div.from-group
+                    textarea(name='description', placeholder='Description',class="form-control") 
+    
+                div.from-group
+                    button.btn.btn-primary.btn-block() save
+                        
+    

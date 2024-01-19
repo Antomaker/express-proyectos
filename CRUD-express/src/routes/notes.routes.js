@@ -5,7 +5,7 @@ const { deletenote, updateNotes, renderNoteForm, createNewNote, renderNotes, ren
 
 //new note
 router.get('/notes/add', renderNoteForm)
-router.post('/notes/add', createNewNote)
+router.post('/notes/new-note', createNewNote)
 
 //Get all Note
 router.get('/notes', renderNotes)
