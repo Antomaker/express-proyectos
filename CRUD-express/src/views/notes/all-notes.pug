@@ -1,0 +1,20 @@
+extend ../layouts/main.pug
+
+block content
+    br
+    div.row
+        each note in notes
+            div.col-md-3
+                .card
+                    .card-body
+                        h4.card-title.d-flex.justify-content-between.align-items-center
+                            | #{note.title}
+                            if note._id
+                                a(href=`/notes/edit/#${note._id}`)
+                                    i.fas.fa-pencil
+                        p.card-text
+                            | #{note.description}
+                        if note._id
+                            form(action=`/notes/delete/${note._id}?_method=DELETE`, method='POST')
+                                input(type="hidden" name="_method" value="DELETE")
+                                button(type="submit").btn.btn-danger.btn-block.btn-sm Delete
