@@ -1,0 +1,17 @@
+extend ../layouts/main.pug
+
+
+block content
+    br
+    div.col-md-4.mx-auto
+        div.card.text-center
+            div.card-header
+                h3 Edit Note 
+            .card-body 
+                form(action="/notes/edit/someid")
+                .form-group 
+                input(type="text" name="title",class="form-control")
+                .form-group 
+                textarea(name="description",class="form-control")
+                .form-group
+                button(type="button").btn.btn-primary.btn-block Save 

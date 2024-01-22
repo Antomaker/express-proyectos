@@ -4,7 +4,7 @@ const Note = require('../models/Note');
 
 
 notesCtrl.renderNoteForm = (req, res) => {
-    res.render('notes/new-note.pug');
+    res.render('notes/edit-note.pug');
 };
 notesCtrl.createNewNote = async (req, res) => {
     const { title, description } = req.body;
