@@ -21,10 +21,12 @@ notesCtrl.renderNotes = async (req, res) => {
 notesCtrl.renderEditForm = async(req, res) => {
     const note =await Note.findById(req.params.id);
     console.log(note);
-    res.render('notes/edit-note.pug');
+    res.render('notes/edit-note.pug',{note});
 };
-notesCtrl.updateNotes = (req, res) => {
-    res.send('update note');
+notesCtrl.updateNotes = async(req, res) => {
+    const {title,description}=req.body;
+    await Note.findByIdAndUpdate(req.params.id,{title,description})
+    res.send('/notes');
 };
 
 notesCtrl.deletenote = async(req, res) => {

@@ -1,17 +1,21 @@
+
 extend ../layouts/main.pug
 
-
 block content
-    br
-    div.col-md-4.mx-auto
-        div.card.text-center
-            div.card-header
-                h3 Edit Note 
-            .card-body 
-                form(action="/notes/edit/someid")
-                .form-group 
-                input(type="text" name="title",class="form-control")
-                .form-group 
-                textarea(name="description",class="form-control")
-                .form-group
-                button(type="button").btn.btn-primary.btn-block Save 
+  
+  br
+  .col-md-4.mx-auto
+    .card.text-center
+      .card-header
+        h3 Edit Note 
+      .card-body 
+        form(action=`/notes/edit/${someid}?_method=PUT`, method="POST")  
+          input(type="hidden" name="_method" value="PUT")
+          .form-group 
+            label(for="title") Title:
+            input(type="text" name="title" class="form-control" value=note.title)
+          .form-group 
+            label(for="description") Description:
+            textarea(name="description" class="form-control") #{note.description}
+          .form-group
+            button(type="submit" class="btn btn-primary btn-block") Save 
