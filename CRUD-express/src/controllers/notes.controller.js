@@ -4,7 +4,7 @@ const Note = require('../models/Note');
 
 
 notesCtrl.renderNoteForm = (req, res) => {
-    res.render('notes/edit-note.pug');
+    res.render('notes/new-note.pug')
 };
 notesCtrl.createNewNote = async (req, res) => {
     const { title, description } = req.body;
@@ -18,8 +18,10 @@ notesCtrl.renderNotes = async (req, res) => {
     res.render('notes/all-notes.pug',{notes});
 };
 
-notesCtrl.renderEditForm = (req, res) => {
-    res.send('render editor');
+notesCtrl.renderEditForm = async(req, res) => {
+    const note =await Note.findById(req.params.id);
+    console.log(note);
+    res.render('notes/edit-note.pug');
 };
 notesCtrl.updateNotes = (req, res) => {
     res.send('update note');
