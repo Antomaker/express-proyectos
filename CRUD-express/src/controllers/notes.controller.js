@@ -19,14 +19,14 @@ notesCtrl.renderNotes = async (req, res) => {
 };
 
 notesCtrl.renderEditForm = async(req, res) => {
-    const note =await Note.findById(req.params.id);
+    const note =await Note.findById(req.params.id).lean();
     console.log(note);
     res.render('notes/edit-note.pug',{note});
 };
 notesCtrl.updateNotes = async(req, res) => {
     const {title,description}=req.body;
-    await Note.findByIdAndUpdate(req.params.id,{title,description})
-    res.send('/notes');
+    await Note.findByIdAndUpdate(req.params.id,{title:title,description:description})
+    res.redirect('/notes');
 };
 
 notesCtrl.deletenote = async(req, res) => {

@@ -10,7 +10,7 @@ block content
                         h4.card-title.d-flex.justify-content-between.align-items-center
                             | #{note.title}
                             if note._id
-                                a(href=`/notes/edit/#${note._id}`)
+                                a(href=`/notes/edit/${note._id}`)
                                     i.fas.fa-pencil
                         p.card-text
                             | #{note.description}
