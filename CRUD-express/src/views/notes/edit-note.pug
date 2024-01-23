@@ -9,8 +9,7 @@ block content
       .card-header
         h3 Edit Note 
       .card-body 
-        form(action=`/notes/edit/${someid}?_method=PUT`, method="POST")  
-          input(type="hidden" name="_method" value="PUT")
+        form(action=`/notes/edit/${someid}`, method="POST")  
           .form-group 
             label(for="title") Title:
             input(type="text" name="title" class="form-control" value=note.title)

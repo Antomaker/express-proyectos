@@ -21,7 +21,7 @@ notesCtrl.renderNotes = async (req, res) => {
 notesCtrl.renderEditForm = async(req, res) => {
     const note =await Note.findById(req.params.id).lean();
     console.log(note);
-    res.render('notes/edit-note.pug',{note});
+    res.render('notes/edit-note.pug',{note, someid:req.params.id});
 };
 notesCtrl.updateNotes = async(req, res) => {
     const {title,description}=req.body;

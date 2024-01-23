@@ -12,7 +12,7 @@ router.get('/notes', renderNotes)
 
 //Edit Notes
 router.get('/notes/edit/:id', renderEditForm)
-router.put('/notes/edit/:id', updateNotes)
+router.post('/notes/edit/:id', updateNotes)
 
 //Delete Notes
 router.delete('/notes/delete/:id', deletenote)
