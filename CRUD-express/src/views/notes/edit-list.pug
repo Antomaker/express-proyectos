@@ -1,0 +1,10 @@
+// views/notes/edit-list.pug
+
+extend ../layouts/main.pug
+
+block content
+  h1 Edit List
+  form(action=`/notes/edit-list/${list._id}`, method='POST')
+    label(for='listName') List Name:
+    input(type='text', name='listName', value=list.listName, required)
+    button(type='submit') Save Changes

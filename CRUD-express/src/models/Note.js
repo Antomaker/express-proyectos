@@ -1,16 +1,28 @@
-const{Schema, model}=require('mongoose');
+const { Schema, model } = require('mongoose');
 
-const NoteSchema=new Schema({
-    title:{
+const NoteSchema = new Schema({
+    title: {
         type: String,
-        required:true
+        required: true
     },
-    description:{
+    description: {
         type: String,
-        required:true
-    }
-},{
-    timestamps:true
-})
+        required: true
+    },
+    list: [
+        {
+            listItem: {
+                type: String,
+                required: true
+            },
+            completed: {
+                type: Boolean,
+                default: false
+            }
+        }
+    ]
+}, {
+    timestamps: true
+});
 
-module.exports=model('Note', NoteSchema);
+module.exports = model('Note', NoteSchema);

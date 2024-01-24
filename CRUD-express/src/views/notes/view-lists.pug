@@ -1,0 +1,9 @@
+
+extend ../layouts/main.pug
+
+block content
+  h1 View Lists
+  ul
+    each list in lists
+      li
+        a(href=`/notes/edit-list/${list._id}`) #{list.listName}

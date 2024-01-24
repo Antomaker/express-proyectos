@@ -1,0 +1,8 @@
+extend ../layouts/main.pug
+
+block content
+  h1 Add List
+  form(action='/notes/add-list', method='POST')
+    label(for='listName') List Name:
+    input(type='text', name='listName', required)
+    button(type='submit') Add List
