@@ -1,0 +1,14 @@
+include partials/head
+
+body
+  h1 #{name}'s todo list
+  h3 Add a new todo
+  form(action="/", method="post")
+    input(type="text", name="text")
+    input(type="submit")
+  ul
+    each todo in todos
+      li.todo= todo.text
+
+
+
